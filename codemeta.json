@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/UrbanAnalyst/ttcalib",
   "issueTracker": "https://github.com/UrbanAnalyst/ttcalib/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.1.101",
+  "version": "0.0.1.102",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -82,7 +82,19 @@
       "name": "m4ra",
       "sameAs": "https://github.com/atfutures/m4ra"
     },
-    "SystemRequirements": null
+    "4": {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    "SystemRequirements": {}
   },
-  "fileSize": "1.5KB"
+  "fileSize": "2.784KB"
 }
