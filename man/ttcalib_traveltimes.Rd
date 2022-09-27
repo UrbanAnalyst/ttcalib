@@ -7,11 +7,11 @@
 ttcalib_traveltimes(graph, geodata, uberdata)
 }
 \arguments{
-\item{graph}{A \pkg{dodgr} graph returned from \link{ttlib_centrality}.}
+\item{graph}{A \pkg{dodgr} graph returned from \link{ttcalib_centrality}.}
 
-\item{geodata}{A \code{data.frame} returned from \link{ttlib_geodata}.}
+\item{geodata}{A \code{data.frame} returned from \link{ttcalib_geodata}.}
 
-\item{uberdata}{A \code{data.frame} returned from \link{ttlib_uberdata}.}
+\item{uberdata}{A \code{data.frame} returned from \link{ttcalib_uberdata}.}
 }
 \value{
 A 'data.frame' with columns of \pkg{m4ra} estimates of travel times
