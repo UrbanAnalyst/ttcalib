@@ -2,4 +2,5 @@
 
 export(ttcalib_centrality)
 export(ttcalib_geodata)
+export(ttcalib_traveltimes)
 export(ttcalib_uberdata)
