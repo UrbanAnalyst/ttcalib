@@ -19,6 +19,9 @@ ttcalib_uberdata <- function (path, hours = NULL) {
     flist <- list.files (path, full.names = TRUE)
     f <- grep ("brussels.*Aggregate", flist, value = TRUE)
 
+    # suppress no visible binding notes:
+    hod <- sourceid <- dstid <- mean_travel_time <- NULL
+
     x <- readr::read_csv (f)
     if (!is.null (hours)) {
         x <- dplyr::filter (x, hod %in% 7:10)
