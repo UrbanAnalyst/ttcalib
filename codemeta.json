@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/UrbanAnalyst/ttcalib",
   "issueTracker": "https://github.com/UrbanAnalyst/ttcalib/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.1.102",
+  "version": "0.0.1.103",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -78,11 +78,35 @@
     },
     "3": {
       "@type": "SoftwareApplication",
+      "identifier": "dplyr",
+      "name": "dplyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
+    },
+    "4": {
+      "@type": "SoftwareApplication",
       "identifier": "m4ra",
       "name": "m4ra",
       "sameAs": "https://github.com/atfutures/m4ra"
     },
-    "4": {
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "readr",
+      "name": "readr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=readr"
+    },
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -96,5 +120,5 @@
     },
     "SystemRequirements": {}
   },
-  "fileSize": "2.784KB"
+  "fileSize": "4.403KB"
 }
