@@ -24,7 +24,7 @@ ttcalib_uberdata <- function (path, hours = NULL) {
 
     x <- readr::read_csv (f)
     if (!is.null (hours)) {
-        x <- dplyr::filter (x, hod %in% 7:10)
+        x <- dplyr::filter (x, hod %in% seq (hours [1], hours [2]))
     }
     x <- dplyr::group_by (x, sourceid, dstid) |>
         dplyr::summarise (mean_travel_time = mean (mean_travel_time))
