@@ -1,6 +1,6 @@
 Package: ttcalib
 Title: Calibration of travel times to empirical data
-Version: 0.0.1.103
+Version: 0.0.1.104
 Authors@R: 
     person(given = "Mark",
            family = "Padgham",
@@ -13,6 +13,7 @@ BugReports: https://github.com/UrbanAnalyst/ttcalib/issues
 Depends: 
     R (>= 2.10)
 Imports:
+    cli,
     dodgr,
     dplyr,
     m4ra,
