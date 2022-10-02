@@ -2,9 +2,9 @@
 % Please edit documentation in R/geodata.R
 \name{ttcalib_geodata}
 \alias{ttcalib_geodata}
-\title{Read geometries for chosen citie from Uber Movement data.}
+\title{Read geometries for chosen city from Uber Movement data.}
 \usage{
-ttcalib_geodata(path)
+ttcalib_geodata(path, city = "santiago")
 }
 \arguments{
 \item{path}{Path to directory containing Uber movement data.}
@@ -14,5 +14,5 @@ A 'data.frame' with centroids of polygons used to aggregate movement
 data.
 }
 \description{
-Currently hard-coded to Brussels data only.
+Currently hard-coded to Brussels or Santiago data only.
 }

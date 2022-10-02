@@ -1,16 +1,20 @@
 
-#' Read geometries for chosen citie from Uber Movement data.
+#' Read geometries for chosen city from Uber Movement data.
 #'
-#' Currently hard-coded to Brussels data only.
+#' Currently hard-coded to Brussels or Santiago data only.
 #'
 #' @param path Path to directory containing Uber movement data.
 #' @return A 'data.frame' with centroids of polygons used to aggregate movement
 #' data.
 #' @export
-ttcalib_geodata <- function (path) {
+ttcalib_geodata <- function (path, city = "santiago") {
 
-    f <- file.path (path, "brussels_statisticaldistrict.json")
-    stopifnot (file.exists (f))
+    city <- match.arg (tolower (city), c ("brussels", "santiago"))
+
+    f <- list.files (path, pattern = "\\.json$", full.names = TRUE)
+    f <- grep (city, f, value = TRUE, ignore.case = TRUE)
+
+    stopifnot (length (f) == 1L)
 
     s <- sf::st_read (f)
     # have to lapply for st_cast to take first element of actual multipolygons
