@@ -10,7 +10,7 @@
 #' filtering.
 #' @return A 'data.frame' of Uber Movement estimates of travel times.
 #' @export
-ttcalib_uberdata <- function (path, hours = NULL) {
+ttcalib_uberdata <- function (path, city = "santiago", hours = NULL) {
 
     if (!is.null (hours)) {
         stopifnot (is.numeric (hours))

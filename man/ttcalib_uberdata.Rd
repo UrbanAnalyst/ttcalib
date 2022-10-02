@@ -4,16 +4,16 @@
 \alias{ttcalib_uberdata}
 \title{Read Uber Movement data and filter to defined time limits.}
 \usage{
-ttcalib_uberdata(path, hours = NULL)
+ttcalib_uberdata(path, city = "santiago", hours = NULL)
 }
 \arguments{
 \item{path}{Path to directory containing Uber movement data.}
 
+\item{city}{One of "brussels" or "santiago" (case-insensitive).}
+
 \item{hours}{A vector of two values defining the range of hours for data to
 be filtered. Default of \code{NULL} returns aggregate of all hours without
 filtering.}
-
-\item{city}{One of "brussels" or "santiago" (case-insensitive).}
 }
 \value{
 A 'data.frame' of Uber Movement estimates of travel times.
