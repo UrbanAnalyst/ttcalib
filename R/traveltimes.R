@@ -24,8 +24,6 @@ ttcalib_traveltimes <- function (graph, geodata, uberdata) {
     to$osm_id <- v$id [index]
     to <- to [order (to$dstid), ]
 
-    stopifnot (identical (from$osm_id, to$osm_id))
-
     tmat <- m4ra::m4ra_times_single_mode (graph, from = from$osm_id, to = to$osm_id)
     rownames (tmat) <- colnames (tmat) <- from$sourceid
 
