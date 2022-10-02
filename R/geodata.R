@@ -4,6 +4,7 @@
 #' Currently hard-coded to Brussels or Santiago data only.
 #'
 #' @param path Path to directory containing Uber movement data.
+#' @param city One of "brussels" or "santiago" (case-insensitive).
 #' @return A 'data.frame' with centroids of polygons used to aggregate movement
 #' data.
 #' @export

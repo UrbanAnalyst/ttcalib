@@ -8,6 +8,8 @@ ttcalib_geodata(path, city = "santiago")
 }
 \arguments{
 \item{path}{Path to directory containing Uber movement data.}
+
+\item{city}{One of "brussels" or "santiago" (case-insensitive).}
 }
 \value{
 A 'data.frame' with centroids of polygons used to aggregate movement
