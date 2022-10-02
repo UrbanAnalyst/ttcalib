@@ -83,13 +83,13 @@ so that equal scales correspond to a value of zero.
 
 ![](man/figures/scale-hist.png)
 
-The median log-10 ratio is -0.162, or a ratio of 0.689, implying that the
-observed times are slightly over 30% *faster* than the estimated times.
+The median log-10 ratio is -0.003, or a ratio of 1.008, implying that the
+observed times are only ever so slightly slower than the estimated times.
 
 ### Correlation
 
 The estmiated and observed travel times are highly correlated, with an
-R-squared value of around 0.67, or 0.942 on a logarithmic scale. These values
+R-squared value of around 0.64, or 0.933 on a logarithmic scale. These values
 compare with equivalent values generated for the paper, [*Predicting commuter
 flows in spatial networks using a radiation model based on temporal
 ranges*](https://www.nature.com/articles/ncomms6347), of 0.639 for raw data,
