@@ -25,7 +25,8 @@ ttcalib_traveltimes <- function (graph, geodata, uberdata) {
     to <- to [order (to$dstid), ]
 
     tmat <- m4ra::m4ra_times_single_mode (graph, from = from$osm_id, to = to$osm_id)
-    rownames (tmat) <- colnames (tmat) <- from$sourceid
+    rownames (tmat) <- from$sourceid
+    colnames (tmat) <- to$dstid
 
     # Then join 'uberdata' travel time estimates to 'tmat' values:
     umat <- array (NA, dim = dim (tmat))
