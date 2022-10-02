@@ -7,7 +7,7 @@
 ttcalib_traveltimes(graph, geodata, uberdata)
 }
 \arguments{
-\item{graph}{A \pkg{dodgr} graph returned from \link{ttcalib_centrality}.}
+\item{graph}{A \pkg{dodgr} graph returned from \link{ttcalib_streetnet}.}
 
 \item{geodata}{A \code{data.frame} returned from \link{ttcalib_geodata}.}
 

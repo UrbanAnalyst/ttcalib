@@ -1,7 +1,7 @@
 
 #' Estimate travel times between all Uber movement polygons
 #'
-#' @param graph A \pkg{dodgr} graph returned from \link{ttcalib_centrality}.
+#' @param graph A \pkg{dodgr} graph returned from \link{ttcalib_streetnet}.
 #' @param geodata A `data.frame` returned from \link{ttcalib_geodata}.
 #' @param uberdata A `data.frame` returned from \link{ttcalib_uberdata}.
 #' @return A 'data.frame' with columns of \pkg{m4ra} estimates of travel times
