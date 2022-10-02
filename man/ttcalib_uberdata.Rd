@@ -12,6 +12,8 @@ ttcalib_uberdata(path, hours = NULL)
 \item{hours}{A vector of two values defining the range of hours for data to
 be filtered. Default of \code{NULL} returns aggregate of all hours without
 filtering.}
+
+\item{city}{One of "brussels" or "santiago" (case-insensitive).}
 }
 \value{
 A 'data.frame' of Uber Movement estimates of travel times.
