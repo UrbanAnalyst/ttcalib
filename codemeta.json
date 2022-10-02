@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/UrbanAnalyst/ttcalib",
   "issueTracker": "https://github.com/UrbanAnalyst/ttcalib/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.1.117",
+  "version": "0.0.1.118",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -130,9 +130,9 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "SystemRequirements": {}
+    "SystemRequirements": null
   },
-  "fileSize": "10.35KB",
+  "fileSize": "3994.613KB",
   "readme": "https://github.com/UrbanAnalyst/ttcalib/blob/main/README.md",
   "contIntegration": "https://github.com/UrbanAnalyst/ttcalib/actions?query=workflow%3AR-CMD-check",
   "developmentStatus": "https://www.repostatus.org/#concept"
