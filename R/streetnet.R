@@ -20,7 +20,11 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
     message (cli::symbol$play,
         cli::col_green (" Weighting network for routing "),
         appendLF = FALSE)
-    graph <- dodgr::weight_streetnet (net, wt_profile = "motorcar", turn_penalty = TRUE)
+    graph <- dodgr::weight_streetnet (
+        net,
+        wt_profile = "motorcar",
+        turn_penalty = TRUE
+    )
     ps <- attr (graph, "px")
     while (ps$is_alive ()) ps$wait ()
     message ("\r", cli::col_green (cli::symbol$tick,
