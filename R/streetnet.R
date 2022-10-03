@@ -40,3 +40,26 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
 
     return (graph)
 }
+
+write_wt_profile <- function (traffic_lights = 1, turn = 2) {
+
+    f <- file.path (tempdir (), "wt_profile.json")
+    dodgr::write_dodgr_wt_profile (f)
+
+    w <- readLines (f)
+
+    p <- grep ("\"penalties\"\\:\\s", w)
+    m <- grep ("\"motorcar\"", w)
+    m <- m [which (m > p) [1]]
+    tl <- grep ("\"traffic_lights\"", w)
+    tl <- tl [which (tl > m) [1]]
+    tu <- grep ("\"turn\"", w)
+    tu <- tu [which (tu > m) [1]]
+
+    w [tl] <- gsub ("[0-9]+,$", paste0 (traffic_lights, ","), w [tl])
+    w [tu] <- gsub ("[0-9]+,$", paste0 (turn, ","), w [tu])
+
+    writeLines (w, f)
+
+    return (f)
+}
