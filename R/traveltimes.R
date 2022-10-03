@@ -30,9 +30,10 @@ ttcalib_traveltimes <- function (graph, geodata, uberdata) {
 
     # Then join 'uberdata' travel time estimates to 'tmat' values:
     umat <- array (NA, dim = dim (tmat))
-    index <- uberdata$sourceid + nrow (umat) * (uberdata$dstid - 1)
+    index_from <- match (uberdata$sourceid, rownames (tmat))
+    index_to <- match (uberdata$dstid, colnames (tmat))
+    index <- index_from + nrow (umat) * (index_to - 1)
     umat [index] <- uberdata$mean_travel_time
-    umat <- array (umat, dim = dim (tmat))
 
     out <- data.frame (
         m4ra = as.vector (tmat) / 60,
