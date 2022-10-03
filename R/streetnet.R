@@ -6,9 +6,13 @@
 #' @param centrality If `TRUE`, calculate network centrality on all graph edges.
 #' Load an 'SC' street network, weight for motorcar routing, and calculate
 #' centrality.
+#' @param penalty_traffic_lights Time penalty for waiting at traffic lights (in
+#' seconds).
+#' @param penalty_turn Time penalty for turning across oncoming traffic.
 #' @return Network with centrality estimates on each edge.
 #' @export
-ttcalib_streetnet <- function (path, centrality = FALSE) {
+ttcalib_streetnet <- function (path, centrality = FALSE,
+    penalty_traffic_lights = 1, penalty_turn = 2) {
 
     stopifnot (file.exists (path))
     net <- readRDS (path)

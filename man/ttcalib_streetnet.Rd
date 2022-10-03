@@ -5,7 +5,12 @@
 \title{Load an 'SC' street network, weight for motorcar routing, and optionally
 calculate centrality.}
 \usage{
-ttcalib_streetnet(path, centrality = FALSE)
+ttcalib_streetnet(
+  path,
+  centrality = FALSE,
+  penalty_traffic_lights = 1,
+  penalty_turn = 2
+)
 }
 \arguments{
 \item{path}{Path to 'SC'-format file containing street network data.}
@@ -13,6 +18,11 @@ ttcalib_streetnet(path, centrality = FALSE)
 \item{centrality}{If \code{TRUE}, calculate network centrality on all graph edges.
 Load an 'SC' street network, weight for motorcar routing, and calculate
 centrality.}
+
+\item{penalty_traffic_lights}{Time penalty for waiting at traffic lights (in
+seconds).}
+
+\item{penalty_turn}{Time penalty for turning across oncoming traffic.}
 }
 \value{
 Network with centrality estimates on each edge.
