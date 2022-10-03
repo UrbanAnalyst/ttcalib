@@ -14,6 +14,8 @@
 ttcalib_streetnet <- function (path, centrality = FALSE,
     penalty_traffic_lights = 1, penalty_turn = 2) {
 
+    wp <- write_wt_profile (penalty_traffic_lights, penalty_turn)
+
     stopifnot (file.exists (path))
     net <- readRDS (path)
 
@@ -23,6 +25,7 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
     graph <- dodgr::weight_streetnet (
         net,
         wt_profile = "motorcar",
+        wt_profile_file = wp,
         turn_penalty = TRUE
     )
     ps <- attr (graph, "px")
