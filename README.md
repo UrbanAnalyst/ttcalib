@@ -95,11 +95,11 @@ times.
 ### Correlation
 
 The estmiated and observed travel times are highly correlated, with an
-R-squared value of around 0.64, or 0.933 on a logarithmic scale. These
-values compare with equivalent values generated for the paper,
-[*Predicting commuter flows in spatial networks using a radiation model
-based on temporal ranges*](https://www.nature.com/articles/ncomms6347),
-of 0.639 for raw data, calculated on a logarithmic scale, and 0.752
-factoring in centrality.
+R-squared value of around 0.63 on a logarithmic scale. That value
+compares with equivalent values generated for the paper, [*Predicting
+commuter flows in spatial networks using a radiation model based on
+temporal ranges*](https://www.nature.com/articles/ncomms6347), of 0.639
+for raw data, calculated on a logarithmic scale, and 0.752 factoring in
+centrality.
 
 ![](man/figures/correlation.png)
