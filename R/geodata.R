@@ -24,7 +24,7 @@ ttcalib_geodata <- function (path, city = "santiago") {
         sf::st_centroid ()
     xy <- sf::st_coordinates (s$geometry)
     s <- data.frame (
-        ID = s$ID,
+        ID = s$MOVEMENT_ID,
         x = xy [, 1],
         y = xy [, 2]
     )
