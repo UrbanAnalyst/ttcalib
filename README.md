@@ -81,25 +81,28 @@ very strongly positively correlated.
 
 The scales of the two can be compared by calculating a ratio, which
 should be close to one, although it is likely that the `m4ra` travel
-times may be slightly higher due to reflecting idealised conditions. The
+times may be higher due to reflecting idealised conditions. The
 following graph shows the distributions of relative scales of the two,
 on a logarithmic scale so that equal scales correspond to a value of
 zero.
 
 ![](man/figures/scale-hist.png)
 
-The median log-10 ratio is -0.003, or a ratio of 1.008, implying that
-the observed times are only ever so slightly slower than the estimated
-times.
+The median log-10 ratio is 0.16, or a ratio of 1.46, implying that the
+observed times are 46% more than the `m4ra` times. That is nevertheless
+with almost no penalty for traffic lights or turning across
+interactions, and provides the benchmark to use for calibration to come
+soon.
 
 ### Correlation
 
-The estmiated and observed travel times are highly correlated, with an
-R-squared value of around 0.63 on a logarithmic scale. That value
-compares with equivalent values generated for the paper, [*Predicting
-commuter flows in spatial networks using a radiation model based on
-temporal ranges*](https://www.nature.com/articles/ncomms6347), of 0.639
-for raw data, calculated on a logarithmic scale, and 0.752 factoring in
+In spite of the different scales observed above, the estimated and
+observed travel times are highly correlated, with an R-squared value of
+around 0.63 on a logarithmic scale. That value compares with equivalent
+values generated for the paper, [*Predicting commuter flows in spatial
+networks using a radiation model based on temporal
+ranges*](https://www.nature.com/articles/ncomms6347), of 0.639 for raw
+data, calculated on a logarithmic scale, and 0.752 factoring in
 centrality.
 
 ![](man/figures/correlation.png)
