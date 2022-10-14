@@ -18,9 +18,9 @@ The empirical data are from [Uber movement](https://movement.uber.com/),
 with these analyses calibrating against [data from Santiago,
 Chile](https://movement.uber.com/explore/santiago/travel-times?lang=en-US).
 The data used are the “All Data” version for the first quarter of 2020,
-grouped by “Hour of Day”. That download tab also includes a link to the
-“Geo Boundaries”, which are also required. Both of these data should be
-saved to a local directory.
+grouped by “Hour of Day”. The download tab on the website linked to above also
+includes a link to the “Geo Boundaries”, which are also required. Both of these
+data should be saved to a local directory.
 
 ### OSM Network data
 
@@ -33,15 +33,14 @@ from Geofabrik, and then processed with `osmium-tools` by:
 2.  Constructing separate keyword-filtered subsets with keywords of:
     “highway”, “restriction”, “access”, “bicycle”, “foot”, “motorcar”,
     “motor_vehicle”, “vehicle”, “toll”.
-3.  Convert all of these single `pbf` files to `osm` (XML) format.
-4.  Read in each via
+3.  Converting all of these single `pbf` files to `osm` (XML) format.
+4.  Reading in each via
     [`osmdata::osmdata_sc()`](https://docs.ropensci.org/osmdata/reference/osmdata_sc.html),
-    and combine all data into single `osmdata_sc` object.
+    and combining all data into single `osmdata_sc` object.
 
 ## Procedure
 
-After loading this package with `devtools::load_all()`, run the
-following code:
+After installing and loading this package, run the following code:
 
 ``` r
 path <- "/<path>/<to>/<uber>/<data>"
