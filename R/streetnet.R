@@ -134,6 +134,23 @@ ttcalib_streetnet_batch <- function (path,
         p_tl <- penalties$traffic_lights [p]
         p_tu <- penalties$turn [p]
 
+        fname_base <- basename (path)
+        fname_path <- dirname (path)
+
+        fp_tl <- round (p_tl * 10)
+        fp_tu <- round (p_tu * 10)
+
+        fname_base <- gsub (
+            "\\.Rds$",
+            paste0 ("_tl", fp_tl, "_tu", fp_tu, "_dlim", dist_threshold, ".Rds"),
+            fname_base
+        )
+        fname <- file.path (fname_path, fname_base)
+
+        if (file.exists (fname)) {
+            next
+        }
+
         msg <- paste0 (
             cli::col_green ("Traffic lights: "),
             cli::col_red (p_tl),
@@ -148,19 +165,6 @@ ttcalib_streetnet_batch <- function (path,
             penalty_traffic_lights = p_tl,
             penalty_turn = p_tu
         )
-
-        fname_base <- basename (path)
-        fname_path <- dirname (path)
-
-        p_tl <- round (p_tl * 10)
-        p_tu <- round (p_tu * 10)
-
-        fname_base <- gsub (
-            "\\.Rds$",
-            paste0 ("_tl", p_tl, "_tu", p_tu, "_dlim", dist_threshold, ".Rds"),
-            fname_base
-        )
-        fname <- file.path (fname_path, fname_base)
 
         fst::write_fst (graph_p, fname)
     }
