@@ -9,10 +9,14 @@
 #' @param penalty_traffic_lights Time penalty for waiting at traffic lights (in
 #' seconds).
 #' @param penalty_turn Time penalty for turning across oncoming traffic.
+#' @param dist_threshold Threshold used for centrality calculations (in metres);
+#' see documentation for \pkg{dodgr} function, 'dodgr_centrality' for
+#' information.
 #' @return Network with centrality estimates on each edge.
 #' @export
 ttcalib_streetnet <- function (path, centrality = FALSE,
-    penalty_traffic_lights = 8, penalty_turn = 7.5) {
+    penalty_traffic_lights = 8, penalty_turn = 7.5,
+    dist_threshold = 10000) {
 
     wp <- write_wt_profile (penalty_traffic_lights, penalty_turn)
 
@@ -42,7 +46,7 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
             cli::col_green (" Calculating network centrality "),
             appendLF = FALSE)
         utils::flush.console ()
-        graph <- dodgr::dodgr_centrality (graph)
+        graph <- dodgr::dodgr_centrality (graph, dist_threshold = dist_threshold)
         message ("\r", cli::col_green (cli::symbol$tick,
             " Calculated network centrality  "))
     }
@@ -99,7 +103,8 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
 ttcalib_streetnet_batch <- function (path,
                                      centrality = FALSE,
                                      penalty_traffic_lights = 1:10,
-                                     penalty_turn = 1:10) {
+                                     penalty_turn = 1:10,
+                                     dist_threshold = 10000) {
 
    penalties <- expand.grid (
         traffic_lights = penalty_traffic_lights,
@@ -134,7 +139,7 @@ ttcalib_streetnet_batch <- function (path,
 
         fname_base <- gsub (
             "\\.Rds$",
-            paste0 ("_tl", p_tl, "_tu", p_tu, ".Rds"),
+            paste0 ("_tl", p_tl, "_tu", p_tu, "_dlim", dist_threshold, ".Rds"),
             fname_base
         )
         fname <- file.path (fname_path, fname_base)

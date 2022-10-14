@@ -9,7 +9,8 @@ ttcalib_streetnet(
   path,
   centrality = FALSE,
   penalty_traffic_lights = 8,
-  penalty_turn = 7.5
+  penalty_turn = 7.5,
+  dist_threshold = 10000
 )
 }
 \arguments{
@@ -23,6 +24,10 @@ centrality.}
 seconds).}
 
 \item{penalty_turn}{Time penalty for turning across oncoming traffic.}
+
+\item{dist_threshold}{Threshold used for centrality calculations (in metres);
+see documentation for \pkg{dodgr} function, 'dodgr_centrality' for
+information.}
 }
 \value{
 Network with centrality estimates on each edge.
