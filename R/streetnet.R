@@ -22,6 +22,7 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
     message (cli::symbol$play,
         cli::col_green (" Weighting network for routing "),
         appendLF = FALSE)
+    utils::flush.console ()
     graph <- dodgr::weight_streetnet (
         net,
         wt_profile = "motorcar",
@@ -40,6 +41,7 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
         message (cli::symbol$play,
             cli::col_green (" Calculating network centrality "),
             appendLF = FALSE)
+        utils::flush.console ()
         graph <- dodgr::dodgr_centrality (graph)
         message ("\r", cli::col_green (cli::symbol$tick,
             " Calculated network centrality  "))
