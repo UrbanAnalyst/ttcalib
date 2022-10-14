@@ -8,8 +8,8 @@ calculate centrality.}
 ttcalib_streetnet(
   path,
   centrality = FALSE,
-  penalty_traffic_lights = 1,
-  penalty_turn = 2
+  penalty_traffic_lights = 8,
+  penalty_turn = 7.5
 )
 }
 \arguments{

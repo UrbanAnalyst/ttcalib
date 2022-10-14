@@ -12,7 +12,7 @@
 #' @return Network with centrality estimates on each edge.
 #' @export
 ttcalib_streetnet <- function (path, centrality = FALSE,
-    penalty_traffic_lights = 1, penalty_turn = 2) {
+    penalty_traffic_lights = 8, penalty_turn = 7.5) {
 
     wp <- write_wt_profile (penalty_traffic_lights, penalty_turn)
 
