@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/UrbanAnalyst/ttcalib",
   "issueTracker": "https://github.com/UrbanAnalyst/ttcalib/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.1.133",
+  "version": "0.0.1.134",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -102,11 +102,23 @@
     },
     "5": {
       "@type": "SoftwareApplication",
+      "identifier": "fst",
+      "name": "fst",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=fst"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
       "identifier": "m4ra",
       "name": "m4ra",
       "sameAs": "https://github.com/atfutures/m4ra"
     },
-    "6": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -118,7 +130,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "7": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -132,7 +144,7 @@
     },
     "SystemRequirements": {}
   },
-  "fileSize": "3994.613KB",
+  "fileSize": "159832.9KB",
   "readme": "https://github.com/UrbanAnalyst/ttcalib/blob/main/README.md",
   "contIntegration": "https://github.com/UrbanAnalyst/ttcalib/actions?query=workflow%3AR-CMD-check",
   "developmentStatus": "https://www.repostatus.org/#concept"
