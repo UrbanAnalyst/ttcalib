@@ -2,5 +2,6 @@
 
 export(ttcalib_geodata)
 export(ttcalib_streetnet)
+export(ttcalib_streetnet_batch)
 export(ttcalib_traveltimes)
 export(ttcalib_uberdata)
