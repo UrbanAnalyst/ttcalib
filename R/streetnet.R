@@ -46,7 +46,10 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
             cli::col_green (" Calculating network centrality "),
             appendLF = FALSE)
         utils::flush.console ()
-        graph <- dodgr::dodgr_centrality (graph, dist_threshold = dist_threshold)
+        graph <- dodgr::dodgr_centrality (
+            graph,
+            dist_threshold = dist_threshold
+        )
         message ("\r", cli::col_green (cli::symbol$tick,
             " Calculated network centrality  "))
 
@@ -71,8 +74,18 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
     tu <- grep ("\"turn\"", w)
     tu <- tu [which (tu > m) [1]]
 
-    w [tl] <- gsub ("[0-9]+,$", paste0 (traffic_lights, ","), w [tl], fixed = TRUE)
-    w [tu] <- gsub ("[0-9]+,$", paste0 (turn, ","), w [tu], fixed = TRUE)
+    w [tl] <- gsub (
+        "[0-9]+,$",
+        paste0 (traffic_lights, ","),
+        w [tl],
+        fixed = TRUE
+    )
+    w [tu] <- gsub (
+        "[0-9]+,$",
+        paste0 (turn, ","),
+        w [tu],
+        fixed = TRUE
+    )
 
     writeLines (w, f)
 
@@ -96,8 +109,8 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
 #' `wt_streetnet`, and able to be recovered from names of resultant files, as
 #' value denoted 'tp'.
 #' \item "dist_threshold", passed as same parameter to \pkg{dodgr} function
-#' `dodgr_centrality`, and able to be recovered from names of resultant files, as
-#' value denoted 'dlim'.
+#' `dodgr_centrality`, and able to be recovered from names of resultant files,
+#' as value denoted 'dlim'.
 #' }
 #'
 #' @note This function will generally take a very long time - hours to days - to
