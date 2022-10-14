@@ -81,7 +81,7 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
 #' the \pkg{fst} package, which removes the necessary attributes of the
 #' resultant `data.frame` objects. These must be manually restored prior to
 #' submitting to \link{ttcalib_traveltimes}. Required attributes are:
-#' \itemize {
+#' \itemize{
 #' \item "left_side", passed as same parameter to \pkg{dodgr} function
 #' `wt_streetnet`.
 #' \item "wt_profile", passed as same parameter to \pkg{dodgr} function
