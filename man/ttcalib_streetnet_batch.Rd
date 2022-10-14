@@ -7,7 +7,7 @@ and locally save the results.}
 \usage{
 ttcalib_streetnet_batch(
   path,
-  centrality = FALSE,
+  centrality = TRUE,
   penalty_traffic_lights = 1:10,
   penalty_turn = 1:10,
   dist_threshold = 10000
@@ -44,8 +44,8 @@ submitting to \link{ttcalib_traveltimes}. Required attributes are:
 \code{wt_streetnet}, and able to be recovered from names of resultant files, as
 value denoted 'tp'.
 \item "dist_threshold", passed as same parameter to \pkg{dodgr} function
-\code{dodgr_centrality}, and able to be recovered from names of resultant files, as
-value denoted 'dlim'.
+\code{dodgr_centrality}, and able to be recovered from names of resultant files,
+as value denoted 'dlim'.
 }
 }
 \note{

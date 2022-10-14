@@ -119,7 +119,7 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
 #' @inheritParams ttcalib_streetnet
 #' @export
 ttcalib_streetnet_batch <- function (path,
-                                     centrality = FALSE,
+                                     centrality = TRUE,
                                      penalty_traffic_lights = 1:10,
                                      penalty_turn = 1:10,
                                      dist_threshold = 10000) {
