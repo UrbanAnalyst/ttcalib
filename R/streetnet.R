@@ -49,6 +49,8 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
         graph <- dodgr::dodgr_centrality (graph, dist_threshold = dist_threshold)
         message ("\r", cli::col_green (cli::symbol$tick,
             " Calculated network centrality  "))
+
+        attr (graph, "dist_threshold") <- dist_threshold
     }
 
     return (graph)
@@ -93,6 +95,9 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
 #' \item "turn_penalty", passed as same parameter to \pkg{dodgr} function
 #' `wt_streetnet`, and able to be recovered from names of resultant files, as
 #' value denoted 'tp'.
+#' \item "dist_threshold", passed as same parameter to \pkg{dodgr} function
+#' `dodgr_centrality`, and able to be recovered from names of resultant files, as
+#' value denoted 'dlim'.
 #' }
 #'
 #' @note This function will generally take a very long time - hours to days - to
