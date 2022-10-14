@@ -63,8 +63,8 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
     tu <- grep ("\"turn\"", w)
     tu <- tu [which (tu > m) [1]]
 
-    w [tl] <- gsub ("[0-9]+,$", paste0 (traffic_lights, ","), w [tl])
-    w [tu] <- gsub ("[0-9]+,$", paste0 (turn, ","), w [tu])
+    w [tl] <- gsub ("[0-9]+,$", paste0 (traffic_lights, ","), w [tl], fixed = TRUE)
+    w [tu] <- gsub ("[0-9]+,$", paste0 (turn, ","), w [tu], fixed = TRUE)
 
     writeLines (w, f)
 
