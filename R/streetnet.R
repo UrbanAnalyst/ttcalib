@@ -159,6 +159,8 @@ ttcalib_streetnet_batch <- function (path,
         )
         cli::cli_h2 (msg)
 
+        dodgr::clear_dodgr_cache ()
+
         graph_p <- ttcalib_streetnet (
             path,
             centrality = centrality,
