@@ -131,7 +131,7 @@ find_batch_result_dir <- function (path) {
     f <- f [which (dir.exists (f))]
     has_batch_results <- vapply (f, function (i) {
         flist <- list.files (i)
-        any (grep ("\\_tl.*\\_tu.*\\_dlim.*\\.Rds", flist))
+        any (grep ("\\_tl.*\\.Rds", flist))
               }, logical (1L))
     f <- f [which (has_batch_results)]
     if (length (f) != 1L) {
