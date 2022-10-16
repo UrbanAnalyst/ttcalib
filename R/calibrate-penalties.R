@@ -78,3 +78,12 @@ ttcalib_streetnet_batch <- function (path,
         fst::write_fst (graph_p, fname)
     }
 }
+
+#' Calculate standard error against 'uber' data for all weighted networks
+#' generated via \link{ttcalib_streetnet_batch}.
+#'
+#' @inheritParams ttcalib_streetnet_batch
+#'
+#' @export
+ttcalib_penalties <- function (path) {
+}
