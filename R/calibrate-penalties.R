@@ -14,8 +14,10 @@
 #' `wt_streetnet`, and which should generally be "motorcar" here.
 #' }
 #'
-#' @note This function will generally take a very long time - hours to days - to
-#' run.
+#' @note This function only generated weighted networks for a range of traffic
+#' light penalties. Turn penalties are calculated on-the-fly in \pkg{m4ra} for
+#' each routing call, and can be specified by modifying the "turn_penalty"
+#' attribute of the graph.
 #'
 #' @inheritParams ttcalib_streetnet
 #' @export
