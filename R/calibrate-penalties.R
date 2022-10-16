@@ -128,7 +128,16 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
             residuals = sum (mod$residuals ^ 2)))
     })
 
-    return (data.frame (do.call (rbind, res)))
+    res <- data.frame (do.call (rbind, res))
+
+    if (is.null (hours)) {
+        hours <- c (0, 24)
+    }
+
+    res$hour0 <- hours [1]
+    res$hour1 <- hours [2]
+
+    return (res)
 }
 
 find_batch_result_dir <- function (path) {
