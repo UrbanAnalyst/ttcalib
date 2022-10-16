@@ -83,6 +83,8 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
         pattern = "\\_tl.*\\.Rds"
     )
 
+    wp <- file.path (tempdir (), "wt_profile.json")
+
     res <- lapply (flist, function (f) {
 
         tl <- regmatches (f, regexpr ("\\_tl[0-9]+", f))
@@ -92,11 +94,11 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
         class (graph) <- c ("dodgr_streetnet_sc", class (graph))
         attr (graph, "left_side") <- FALSE
         attr (graph, "wt_profile") <- "motorcar"
+        attr (graph, "wt_profile_file") <- wp
 
         res_f <- lapply (1:10, function (tu) {
 
             attr (graph, "turn_penalty") <- tu
-            wp <- file.path (tempdir (), "wt_profile.json")
             if (file.exists (wp)) {
                 file.remove (wp)
             }
