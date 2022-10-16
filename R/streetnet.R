@@ -56,6 +56,8 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
         attr (graph, "dist_threshold") <- dist_threshold
     }
 
+    file.remove (wp)
+
     return (graph)
 }
 
@@ -75,16 +77,16 @@ write_wt_profile <- function (traffic_lights = 1, turn = 2) {
     tu <- tu [which (tu > m) [1]]
 
     w [tl] <- gsub (
-        "[0-9]+,$",
+        "[0-9]*\\,$",
         paste0 (traffic_lights, ","),
         w [tl],
-        fixed = TRUE
+        fixed = FALSE
     )
     w [tu] <- gsub (
-        "[0-9]+,$",
+        "[0-9]*(\\.[0-9])\\,$",
         paste0 (turn, ","),
         w [tu],
-        fixed = TRUE
+        fixed = FALSE
     )
 
     writeLines (w, f)
