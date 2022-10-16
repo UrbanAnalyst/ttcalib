@@ -82,32 +82,35 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
     flist <- list.files (
         path_b,
         full.names = TRUE,
-        pattern = "\\_tl.*\\_tu.*\\_dlim.*\\.Rds"
+        pattern = "\\_tl.*\\.Rds"
     )
 
     res <- pbapply::pblapply (flist, function (f) {
 
         tl <- regmatches (f, regexpr ("\\_tl[0-9]+", f))
         tl <- as.integer (gsub ("^\\_tl", "", tl)) / 10
-        tu <- regmatches (f, regexpr ("\\_tu[0-9]+", f))
-        tu <- as.integer (gsub ("^\\_tu", "", tu)) / 10
 
         graph <- fst::read_fst (f)
         class (graph) <- c ("dodgr_streetnet_sc", class (graph))
         attr (graph, "left_side") <- FALSE
         attr (graph, "wt_profile") <- "motorcar"
-        attr (graph, "turn_penalty") <- tu
 
-        dat <- ttcalib_traveltimes (graph, geodata, uberdata)
+        res_f <- lapply (1:10, function (tu) {
 
-        dat <- dat [which (is.finite (dat$m4ra)), ]
-        mod <- summary (lm (log10 (dat$uber) ~ log10 (dat$m4ra)))
+            attr (graph, "turn_penalty") <- tu
 
-        return (c (
-            traffic_lights = tl,
-            turn = tu,
-            r2 = mod$r.squared,
-            residuals = sum (mod$residuals ^ 2)))
+            dat <- ttcalib_traveltimes (graph, geodata, uberdata)
+
+            dat <- dat [which (is.finite (dat$m4ra)), ]
+            mod <- summary (lm (log10 (dat$uber) ~ log10 (dat$m4ra)))
+
+            return (c (
+                traffic_lights = tl,
+                turn = tu,
+                r2 = mod$r.squared,
+                residuals = sum (mod$residuals ^ 2)))
+        })
+        res <- data.frame (do.call (rbind, res_f))
     })
 
     res <- data.frame (do.call (rbind, res))
