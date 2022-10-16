@@ -98,6 +98,11 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
         res_f <- lapply (1:10, function (tu) {
 
             attr (graph, "turn_penalty") <- tu
+            wp <- file.path (tempdir (), "wt_profile.json")
+            if (file.exists (wp)) {
+                file.remove (wp)
+            }
+            wp <- write_wt_profile (traffic_lights = tl, turn = tu)
 
             dat <- ttcalib_traveltimes (graph, geodata, uberdata)
 
