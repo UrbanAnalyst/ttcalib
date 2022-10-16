@@ -85,7 +85,7 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
         pattern = "\\_tl.*\\.Rds"
     )
 
-    res <- pbapply::pblapply (flist, function (f) {
+    res <- lapply (flist, function (f) {
 
         tl <- regmatches (f, regexpr ("\\_tl[0-9]+", f))
         tl <- as.integer (gsub ("^\\_tl", "", tl)) / 10
@@ -103,6 +103,9 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
 
             dat <- dat [which (is.finite (dat$m4ra)), ]
             mod <- summary (lm (log10 (dat$uber) ~ log10 (dat$m4ra)))
+
+            message ("(tl, tu) = (", tl, ", ", tu, "): R2 = ",
+                     mod$r.squared)
 
             return (c (
                 traffic_lights = tl,

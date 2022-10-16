@@ -1,6 +1,6 @@
 Package: ttcalib
 Title: Calibration of travel times to empirical data
-Version: 0.0.1.156
+Version: 0.0.1.157
 Authors@R: 
     person(given = "Mark",
            family = "Padgham",
@@ -22,7 +22,6 @@ Imports:
     sf
 Suggests:
     geodist,
-    pbapply,
     testthat (>= 3.0.0)
 Remotes:
     atfutures/m4ra
