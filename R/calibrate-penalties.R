@@ -26,7 +26,7 @@
 #' @inheritParams ttcalib_streetnet
 #' @export
 ttcalib_streetnet_batch <- function (path,
-                                     centrality = TRUE,
+                                     centrality = FALSE,
                                      penalty_traffic_lights = 1:10,
                                      penalty_turn = 1:10,
                                      dist_threshold = 10000) {

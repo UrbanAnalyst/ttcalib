@@ -7,7 +7,7 @@ and locally save the results.}
 \usage{
 ttcalib_streetnet_batch(
   path,
-  centrality = TRUE,
+  centrality = FALSE,
   penalty_traffic_lights = 1:10,
   penalty_turn = 1:10,
   dist_threshold = 10000
