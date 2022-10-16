@@ -5,10 +5,16 @@
 \title{Calculate standard error against 'uber' data for all weighted networks
 generated via \link{ttcalib_streetnet_batch}.}
 \usage{
-ttcalib_penalties(path)
+ttcalib_penalties(path, city, hours = NULL)
 }
 \arguments{
-\item{path}{Path to 'SC'-format file containing street network data.}
+\item{path}{Path to directory containing Uber movement data.}
+
+\item{city}{One of "brussels" or "santiago" (case-insensitive).}
+
+\item{hours}{A vector of two values defining the range of hours for data to
+be filtered. Default of \code{NULL} returns aggregate of all hours without
+filtering.}
 }
 \description{
 Calculate standard error against 'uber' data for all weighted networks

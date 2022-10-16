@@ -82,8 +82,30 @@ ttcalib_streetnet_batch <- function (path,
 #' Calculate standard error against 'uber' data for all weighted networks
 #' generated via \link{ttcalib_streetnet_batch}.
 #'
-#' @inheritParams ttcalib_streetnet_batch
+#' @inheritParams ttcalib_uberdata
 #'
 #' @export
-ttcalib_penalties <- function (path) {
+ttcalib_penalties <- function (path, city, hours = NULL) {
+
+    geodata <- ttcalib_geodata (path = path, city = city)
+    uberdata <- ttcalib_uberdata (path = path, hours = hours, city = city)
+
+    path_b <- find_batch_result_dir (path)
+}
+
+find_batch_result_dir <- function (path) {
+
+    f <- normalizePath (list.files (path, full.names = TRUE))
+    f <- f [which (dir.exists (f))]
+    has_batch_results <- vapply (f, function (i) {
+        flist <- list.files (i)
+        any (grep ("\\_tl.*\\_tu.*\\_dlim.*\\.Rds", flist))
+              }, logical (1L))
+    f <- f [which (has_batch_results)]
+    if (length (f) != 1L) {
+        stop ("Could not locate directory with batch results",
+              call. = FALSE)
+    }
+
+    return (f)
 }
