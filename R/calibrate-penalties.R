@@ -1,5 +1,5 @@
 
-#' Weight an 'SC' street network by a range of traffic light and turn penalties,
+#' Weight an 'SC' street network by a range of traffic light penalties,
 #' and locally save the results.
 #'
 #' This function produces an array of differently-weighted streetnets, each
@@ -12,12 +12,6 @@
 #' `wt_streetnet`.
 #' \item "wt_profile", passed as same parameter to \pkg{dodgr} function
 #' `wt_streetnet`, and which should generally be "motorcar" here.
-#' \item "turn_penalty", passed as same parameter to \pkg{dodgr} function
-#' `wt_streetnet`, and able to be recovered from names of resultant files, as
-#' value denoted 'tp'.
-#' \item "dist_threshold", passed as same parameter to \pkg{dodgr} function
-#' `dodgr_centrality`, and able to be recovered from names of resultant files,
-#' as value denoted 'dlim'.
 #' }
 #'
 #' @note This function will generally take a very long time - hours to days - to
@@ -26,31 +20,17 @@
 #' @inheritParams ttcalib_streetnet
 #' @export
 ttcalib_streetnet_batch <- function (path,
-                                     centrality = FALSE,
-                                     penalty_traffic_lights = 1:10,
-                                     penalty_turn = 1:10,
-                                     dist_threshold = 10000) {
+                                     penalty_traffic_lights = 1:10) {
 
-   penalties <- expand.grid (
-        traffic_lights = penalty_traffic_lights,
-        turn = penalty_turn
-    )
-
-    for (p in seq_len (nrow (penalties))) {
-
-        p_tl <- penalties$traffic_lights [p]
-        p_tu <- penalties$turn [p]
+    for (p in penalty_traffic_lights) {
 
         fname_base <- basename (path)
         fname_path <- dirname (path)
 
-        fp_tl <- round (p_tl * 10)
-        fp_tu <- round (p_tu * 10)
+        fp <- round (p * 10)
 
         ptn <- paste0 (
-            "_tl", fp_tl,
-            "_tu", fp_tu,
-            "_dlim", dist_threshold,
+            "_tl", fp,
             ".Rds"
         )
         fname_base <- gsub ("\\.Rds$", ptn, fname_base)
@@ -62,9 +42,7 @@ ttcalib_streetnet_batch <- function (path,
 
         msg <- paste0 (
             cli::col_green ("Traffic lights: "),
-            cli::col_red (p_tl),
-            cli::col_green ("; Turn: "),
-            cli::col_red (p_tu)
+            cli::col_red (p_tl)
         )
         cli::cli_h2 (msg)
 
@@ -74,7 +52,7 @@ ttcalib_streetnet_batch <- function (path,
             path,
             centrality = centrality,
             penalty_traffic_lights = p_tl,
-            penalty_turn = p_tu
+            penalty_turn = 7.5 # generic value; can be replace later
         )
 
         fst::write_fst (graph_p, fname)

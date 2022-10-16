@@ -2,32 +2,16 @@
 % Please edit documentation in R/calibrate-penalties.R
 \name{ttcalib_streetnet_batch}
 \alias{ttcalib_streetnet_batch}
-\title{Weight an 'SC' street network by a range of traffic light and turn penalties,
+\title{Weight an 'SC' street network by a range of traffic light penalties,
 and locally save the results.}
 \usage{
-ttcalib_streetnet_batch(
-  path,
-  centrality = FALSE,
-  penalty_traffic_lights = 1:10,
-  penalty_turn = 1:10,
-  dist_threshold = 10000
-)
+ttcalib_streetnet_batch(path, penalty_traffic_lights = 1:10)
 }
 \arguments{
 \item{path}{Path to 'SC'-format file containing street network data.}
 
-\item{centrality}{If \code{TRUE}, calculate network centrality on all graph edges.
-Load an 'SC' street network, weight for motorcar routing, and calculate
-centrality.}
-
 \item{penalty_traffic_lights}{Time penalty for waiting at traffic lights (in
 seconds).}
-
-\item{penalty_turn}{Time penalty for turning across oncoming traffic.}
-
-\item{dist_threshold}{Threshold used for centrality calculations (in metres);
-see documentation for \pkg{dodgr} function, 'dodgr_centrality' for
-information.}
 }
 \description{
 This function produces an array of differently-weighted streetnets, each
@@ -40,12 +24,6 @@ submitting to \link{ttcalib_traveltimes}. Required attributes are:
 \code{wt_streetnet}.
 \item "wt_profile", passed as same parameter to \pkg{dodgr} function
 \code{wt_streetnet}, and which should generally be "motorcar" here.
-\item "turn_penalty", passed as same parameter to \pkg{dodgr} function
-\code{wt_streetnet}, and able to be recovered from names of resultant files, as
-value denoted 'tp'.
-\item "dist_threshold", passed as same parameter to \pkg{dodgr} function
-\code{dodgr_centrality}, and able to be recovered from names of resultant files,
-as value denoted 'dlim'.
 }
 }
 \note{
