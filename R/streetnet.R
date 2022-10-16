@@ -34,7 +34,8 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
         turn_penalty = TRUE
     )
     ps <- attr (graph, "px")
-    while (ps$is_alive ()) ps$wait ()
+    #while (ps$is_alive ()) ps$wait ()
+    ps$kill () # don't need dodgr cached components
     message ("\r", cli::col_green (cli::symbol$tick,
         " Weighted network for routing   "))
 
