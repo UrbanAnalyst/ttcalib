@@ -47,11 +47,13 @@ ttcalib_streetnet_batch <- function (path,
         fp_tl <- round (p_tl * 10)
         fp_tu <- round (p_tu * 10)
 
-        fname_base <- gsub (
-            "\\.Rds$",
-            paste0 ("_tl", fp_tl, "_tu", fp_tu, "_dlim", dist_threshold, ".Rds"),
-            fname_base
+        ptn <- paste0 (
+            "_tl", fp_tl,
+            "_tu", fp_tu,
+            "_dlim", dist_threshold,
+            ".Rds"
         )
+        fname_base <- gsub ("\\.Rds$", ptn, fname_base)
         fname <- file.path (fname_path, fname_base)
 
         if (file.exists (fname)) {
