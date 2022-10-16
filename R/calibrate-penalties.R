@@ -42,7 +42,7 @@ ttcalib_streetnet_batch <- function (path,
 
         msg <- paste0 (
             cli::col_green ("Traffic lights: "),
-            cli::col_red (p_tl)
+            cli::col_red (p)
         )
         cli::cli_h2 (msg)
 
@@ -51,7 +51,7 @@ ttcalib_streetnet_batch <- function (path,
         graph_p <- ttcalib_streetnet (
             path,
             centrality = centrality,
-            penalty_traffic_lights = p_tl,
+            penalty_traffic_lights = p,
             penalty_turn = 7.5 # generic value; can be replace later
         )
 
