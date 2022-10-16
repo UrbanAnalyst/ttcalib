@@ -5,10 +5,13 @@
 \title{Calculate standard error against 'uber' data for all weighted networks
 generated via \link{ttcalib_streetnet_batch}.}
 \usage{
-ttcalib_penalties(path, city, hours = NULL)
+ttcalib_penalties(path_results, path_uberdata, city, hours = NULL)
 }
 \arguments{
-\item{path}{Path to directory containing Uber movement data.}
+\item{path_results}{Path to directory holding main OSM network data,
+including a sub-directory with output of \link{ttcalib_streetnet_batch}.}
+
+\item{path_uberdata}{Path to Uber movement data.}
 
 \item{city}{One of "brussels" or "santiago" (case-insensitive).}
 
