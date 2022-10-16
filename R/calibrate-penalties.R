@@ -72,8 +72,6 @@ ttcalib_streetnet_batch <- function (path,
 #' @export
 ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) {
 
-    requireNamespace ("pbapply")
-
     geodata <- ttcalib_geodata (path = path_uberdata, city = city)
     uberdata <- ttcalib_uberdata (path = path_uberdata, hours = hours, city = city)
 
