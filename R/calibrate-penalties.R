@@ -50,7 +50,7 @@ ttcalib_streetnet_batch <- function (path,
 
         graph_p <- ttcalib_streetnet (
             path,
-            centrality = centrality,
+            centrality = FALSE,
             penalty_traffic_lights = p,
             penalty_turn = 7.5 # generic value; can be replace later
         )
