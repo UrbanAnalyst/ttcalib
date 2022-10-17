@@ -49,6 +49,7 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
         utils::flush.console ()
         graph <- dodgr::dodgr_centrality (
             graph,
+            column = "time_weighted",
             dist_threshold = dist_threshold
         )
         message ("\r", cli::col_green (cli::symbol$tick,
