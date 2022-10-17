@@ -18,9 +18,9 @@ The empirical data are from [Uber movement](https://movement.uber.com/),
 with these analyses calibrating against [data from Santiago,
 Chile](https://movement.uber.com/explore/santiago/travel-times?lang=en-US).
 The data used are the “All Data” version for the first quarter of 2020,
-grouped by “Hour of Day”. The download tab on the website linked to above also
-includes a link to the “Geo Boundaries”, which are also required. Both of these
-data should be saved to a local directory.
+grouped by “Hour of Day”. The download tab on the website linked to
+above also includes a link to the “Geo Boundaries”, which are also
+required. Both of these data should be saved to a local directory.
 
 ### OSM Network data
 
@@ -38,70 +38,43 @@ from Geofabrik, and then processed with `osmium-tools` by:
     [`osmdata::osmdata_sc()`](https://docs.ropensci.org/osmdata/reference/osmdata_sc.html),
     and combining all data into single `osmdata_sc` object.
 
-## Procedure
+## Calibration
 
-After installing and loading this package, run the following code:
+The calibration proceeds in two steps:
 
-``` r
-path <- "/<path>/<to>/<uber>/<data>"
-city <- "santiago"
-geodata <- ttcalib_geodata (path = path, city = city)
-uberdata <- ttcalib_uberdata (path = path, hours = c (7, 10), city = city)
-```
+1.  Calibration of waiting times both at traffic lights, and to turn
+    across oncoming traffic. The effects of these parameters was
+    examined in [a 2020 *Scientific Data* paper, “*Longitudinal spatial
+    dataset on travel times and distances by different travel modes in
+    Helsinki
+    Region*](https://www.nature.com/articles/s41597-020-0413-y), which
+    implemented a complicated parametrisation of waiting times at
+    various types of intersections “based on previous research.”
+2.  Calibration of estimated times to measures of network centrality.
+    These effects were examined in [a 2014 *Nature Communications*
+    paper, “*Predicting commuter flows in spatial networks using a
+    radiation model based on temporal
+    ranges*](https://www.nature.com/articles/ncomms6347), which started
+    with a “base” model able to predict observed travel times with an
+    r-squared correlation coefficient of 0.639. This was then increased
+    through inclusion of the effects of centrality, using a simple
+    threshold model, to 0.752.
 
-Then convert the `osmdata_sc` object into a “dodgr” streetnet by
-specifying the local path to the object stored in `.Rds` format and
-running this function:
+These two types of calibration are successively applied here.
 
-``` r
-graph <- ttcalib_streetnet ("<path>")
-```
+### Calibration to waiting times
 
-Finally, use those three objects to generate vehicular traveltime
-estimates from [the `m4ra`
-package](https://github.com/atfut%20ures/m4ra), and to compare those
-with the emprical estimates from the Uber movement data:
+Waiting times were examined through two parameters:
 
-``` r
-dat <- ttcalib_traveltimes (graph, geodata, uberdata)
-```
+1.  The effective waiting time at traffic lights; and
+2.  The effective waiting time to turn across oncoming traffic.
 
-That calculation shouild only take around a minute or so, and generates
-a `data.frame` with two columns, “m4ra” and “uber”, containing estimated
-and observed travel times between around 250,000 origin and destination
-points.
-
-## Results
-
-The two travel times should both broadly agree in scale, and should be
-very strongly positively correlated.
-
-### Scale
-
-The scales of the two can be compared by calculating a ratio, which
-should be close to one, although it is likely that the `m4ra` travel
-times may be higher due to reflecting idealised conditions. The
-following graph shows the distributions of relative scales of the two,
-on a logarithmic scale so that equal scales correspond to a value of
-zero.
-
-![](man/figures/scale-hist.png)
-
-The median log-10 ratio is 0.16, or a ratio of 1.46, implying that the
-observed times are 46% more than the `m4ra` times. That is nevertheless
-with almost no penalty for traffic lights or turning across
-interactions, and provides the benchmark to use for calibration to come
-soon.
-
-### Correlation
-
-In spite of the different scales observed above, the estimated and
-observed travel times are highly correlated, with an R-squared value of
-around 0.63 on a logarithmic scale. That value compares with equivalent
-values generated for the paper, [*Predicting commuter flows in spatial
-networks using a radiation model based on temporal
-ranges*](https://www.nature.com/articles/ncomms6347), of 0.639 for raw
-data, calculated on a logarithmic scale, and 0.752 factoring in
-centrality.
+Street networks were weighted for time-based routing using specific
+values of these two parameters, and travel times estimated for all
+320,666 observed origins and destinations in the Uber Movement data. The
+best model corresponded to an r-squared correlation of 0.697 for an
+effective waiting time at traffic lights of 16 seconds in peak hour
+traffic (7-10 am). Corresponding effective waiting times to turn across
+oncoming traffic were only 1 second.
 
 ![](man/figures/correlation.png)
