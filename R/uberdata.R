@@ -26,7 +26,7 @@ ttcalib_uberdata <- function (path, city = "santiago", hours = NULL) {
     # suppress no visible binding notes:
     hod <- sourceid <- dstid <- mean_travel_time <- NULL
 
-    x <- readr::read_csv (f)
+    x <- readr::read_csv (f, progress = FALSE, show_col_types = FALSE)
     if (!is.null (hours)) {
         x <- dplyr::filter (x, hod %in% seq (hours [1], hours [2]))
     }
