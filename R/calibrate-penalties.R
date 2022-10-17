@@ -96,7 +96,7 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
         attr (graph, "wt_profile") <- "motorcar"
         attr (graph, "wt_profile_file") <- wp
 
-        res_f <- lapply (1:10, function (tu) {
+        res_f <- lapply (0:10, function (tu) {
 
             attr (graph, "turn_penalty") <- tu
             if (file.exists (wp)) {
@@ -106,11 +106,12 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
 
             dat <- ttcalib_traveltimes (graph, geodata, uberdata)
 
-            dat <- dat [which (is.finite (dat$m4ra)), ]
+            dat <- dat [which (is.finite (dat$m4ra) &
+                               dat$m4ra > 0), ]
             mod <- summary (lm (log10 (dat$uber) ~ log10 (dat$m4ra)))
 
             message ("(tl, tu) = (", tl, ", ", tu, "): R2 = ",
-                     mod$r.squared)
+                     round (mod$r.squared, digits = 4))
 
             return (c (
                 traffic_lights = tl,
