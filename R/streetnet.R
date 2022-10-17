@@ -43,7 +43,8 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
 
         # Adjust dist_threshold to equivalent time value:
         dist_threshold <- dist_threshold *
-            mean (graph$time_weighted) / mean (graph$d)
+            mean (graph$time_weighted, na.rm = TRUE) /
+            mean (graph$d, na.rm = TRUE)
 
         graph <- dodgr::dodgr_deduplicate_graph (graph)
 
