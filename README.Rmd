@@ -73,4 +73,26 @@ to an r-squared correlation of 0.697 for an effective waiting time at traffic
 lights of 16 seconds in peak hour traffic (7-10 am). Corresponding effective
 waiting times to turn across oncoming traffic were only 1 second.
 
+### Calibration to network centrality
+
+The preceding waiting times were then used to calculate time-based metrics of
+centrality, and to adjust observed travel times by centrality. These
+adjustments made, however, very little difference, and increasing travel times
+along more central portions of the network increased agreement with observed
+values at most by only a few hundredths of a percent or less. The best model
+was to logarithmically transform centrality, divide by the maximum value, and
+increase travel times for the upper 30% of the centrality distribution by the
+corresponding values. Even this, however, only increased resultant r-squared
+values by just over 1%.
+
+## Conclusion
+
+This repository documents and justifies the general procedure pursued here, to
+estimate vehicular travel times through using the following time penalties:
+
+1. Wait at traffic lights = 16 seconds
+2. Wait to turn across oncoming traffic = 1 second
+
+No additional adjustments for network centrality are implemented.
+
 ![](man/figures/correlation.png)
