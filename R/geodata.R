@@ -17,7 +17,7 @@ ttcalib_geodata <- function (path, city = "santiago") {
 
     stopifnot (length (f) == 1L)
 
-    s <- sf::st_read (f)
+    s <- sf::st_read (f, quiet = TRUE)
     # have to lapply for st_cast to take first element of actual multipolygons
     s$geometry <- sf::st_sfc (lapply (s$geometry, function (i)
         sf::st_cast (i, "POLYGON"))) |>

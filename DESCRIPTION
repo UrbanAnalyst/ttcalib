@@ -1,6 +1,6 @@
 Package: ttcalib
 Title: Calibration of travel times to empirical data
-Version: 0.0.1.169
+Version: 0.0.1.170
 Authors@R: 
     person(given = "Mark",
            family = "Padgham",
