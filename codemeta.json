@@ -7,13 +7,13 @@
   "codeRepository": "https://github.com/UrbanAnalyst/ttcalib",
   "issueTracker": "https://github.com/UrbanAnalyst/ttcalib/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.1.172",
+  "version": "0.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -142,9 +142,9 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "SystemRequirements": {}
+    "SystemRequirements": null
   },
-  "fileSize": "296.111KB",
+  "fileSize": "156927.911KB",
   "readme": "https://github.com/UrbanAnalyst/ttcalib/blob/main/README.md",
   "contIntegration": "https://github.com/UrbanAnalyst/ttcalib/actions?query=workflow%3AR-CMD-check",
   "developmentStatus": "https://www.repostatus.org/#concept"
