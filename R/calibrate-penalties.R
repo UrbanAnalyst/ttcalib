@@ -54,7 +54,7 @@ ttcalib_streetnet_batch <- function (path,
             path,
             centrality = FALSE,
             penalty_traffic_lights = p,
-            penalty_turn = 7.5 # generic value; can be replace later
+            penalty_turn = 7.5 # generic value; can be replaced later
         )
 
         fst::write_fst (graph_p, fname)
