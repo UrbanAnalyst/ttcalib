@@ -96,6 +96,8 @@ estimate vehicular travel times through using the following time penalties:
 1. Wait at traffic lights = 9 seconds
 2. Wait to turn across oncoming traffic = 1 second
 
-No additional adjustments for network centrality are implemented.
+No additional adjustments for network centrality are implemented. The estimated
+times are then slightly faster than the observed times, with a median ratio of
+log-times of 0.94.
 
 ![](man/figures/correlation.png)
