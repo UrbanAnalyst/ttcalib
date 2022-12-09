@@ -1,6 +1,6 @@
 Package: ttcalib
 Title: Calibration of travel times to empirical data
-Version: 0.1.0
+Version: 0.1.0.001
 Authors@R: 
     person(given = "Mark",
            family = "Padgham",
@@ -28,5 +28,5 @@ Remotes:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.2
 Config/testthat/edition: 3

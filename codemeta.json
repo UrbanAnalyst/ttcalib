@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/UrbanAnalyst/ttcalib",
   "issueTracker": "https://github.com/UrbanAnalyst/ttcalib/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0",
+  "version": "0.1.0.001",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -142,7 +142,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "SystemRequirements": null
+    "SystemRequirements": {}
   },
   "fileSize": "156927.911KB",
   "readme": "https://github.com/UrbanAnalyst/ttcalib/blob/main/README.md",
