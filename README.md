@@ -72,10 +72,12 @@ Waiting times were examined through two parameters:
 Street networks were weighted for time-based routing using specific
 values of these two parameters, and travel times estimated for all
 320,666 observed origins and destinations in the Uber Movement data. The
-best model corresponded to an r-squared correlation of 0.697 for an
-effective waiting time at traffic lights of 16 seconds in peak hour
-traffic (7-10 am). Corresponding effective waiting times to turn across
-oncoming traffic were only 1 second.
+minimal-error model corresponded to an R-squared correlation of 0.782
+for an effective waiting time at traffic lights of 8 seconds in morning
+peak hour traffic (7-10 am), or 9 seconds in afternoon traffic (3-7 pm).
+Corresponding effective waiting times to turn across oncoming traffic
+were only 2 or 1 seconds, respectively, although these made very little
+difference to model results compared with the effects of traffic lights.
 
 ### Calibration to network centrality
 
@@ -96,7 +98,7 @@ This repository documents and justifies the general procedure pursued
 here, to estimate vehicular travel times through using the following
 time penalties:
 
-1.  Wait at traffic lights = 16 seconds
+1.  Wait at traffic lights = 9 seconds
 2.  Wait to turn across oncoming traffic = 1 second
 
 No additional adjustments for network centrality are implemented.
