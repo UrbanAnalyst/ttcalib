@@ -19,8 +19,8 @@ ttcalib_geodata <- function (path, city = "santiago") {
 
     s <- sf::st_read (f, quiet = TRUE)
     # have to lapply for st_cast to take first element of actual multipolygons
-    s$geometry <- sf::st_sfc (lapply (s$geometry, function (i)
-        sf::st_cast (i, "POLYGON"))) |>
+    s$geometry <- sf::st_sfc (lapply (s$geometry,
+        function (i) sf::st_cast (i, "POLYGON"))) |>
         sf::st_centroid ()
     xy <- sf::st_coordinates (s$geometry)
     s <- data.frame (

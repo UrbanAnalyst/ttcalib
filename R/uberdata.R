@@ -19,7 +19,12 @@ ttcalib_uberdata <- function (path, city = "santiago", hours = NULL) {
     city <- match.arg (tolower (city), c ("brussels", "santiago"))
 
     flist <- list.files (path, full.names = TRUE)
-    f <- grep (paste0 (city, ".*aggregate"), flist, value = TRUE, ignore.case = TRUE)
+    f <- grep (
+        paste0 (city, ".*aggregate"),
+        flist,
+        value = TRUE,
+        ignore.case = TRUE
+    )
 
     stopifnot (length (f) == 1L)
 
