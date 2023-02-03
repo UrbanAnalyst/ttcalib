@@ -1,4 +1,3 @@
-
 #' Weight an 'SC' street network by a range of traffic light penalties,
 #' and locally save the results.
 #'
@@ -107,17 +106,20 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
             dat <- ttcalib_traveltimes (graph, geodata, uberdata)
 
             dat <- dat [which (is.finite (dat$m4ra) &
-                               dat$m4ra > 0), ]
+                dat$m4ra > 0), ]
             mod <- summary (lm (log10 (dat$uber) ~ log10 (dat$m4ra)))
 
-            message ("(tl, tu) = (", tl, ", ", tu, "): R2 = ",
-                     round (mod$r.squared, digits = 4))
+            message (
+                "(tl, tu) = (", tl, ", ", tu, "): R2 = ",
+                round (mod$r.squared, digits = 4)
+            )
 
             return (c (
                 traffic_lights = tl,
                 turn = tu,
                 r2 = mod$r.squared,
-                residuals = sum (mod$residuals ^ 2)))
+                residuals = sum (mod$residuals^2)
+            ))
         })
         res <- data.frame (do.call (rbind, res_f))
     })
@@ -141,11 +143,12 @@ find_batch_result_dir <- function (path) {
     has_batch_results <- vapply (f, function (i) {
         flist <- list.files (i)
         any (grep ("\\_tl.*\\.Rds", flist))
-              }, logical (1L))
+    }, logical (1L))
     f <- f [which (has_batch_results)]
     if (length (f) != 1L) {
         stop ("Could not locate directory with batch results",
-              call. = FALSE)
+            call. = FALSE
+        )
     }
 
     return (f)

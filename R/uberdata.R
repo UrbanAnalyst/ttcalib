@@ -1,4 +1,3 @@
-
 #' Read Uber Movement data and filter to defined time limits.
 #'
 #' Currently hard-coded to Brussels data only.

@@ -1,4 +1,3 @@
-
 #' Load an 'SC' street network, weight for motorcar routing, and optionally
 #' calculate centrality.
 #'
@@ -14,7 +13,8 @@
 #' information.
 #' @return Network with centrality estimates on each edge.
 #' @export
-ttcalib_streetnet <- function (path, centrality = FALSE,
+ttcalib_streetnet <- function (
+    path, centrality = FALSE,
     penalty_traffic_lights = 8, penalty_turn = 7.5,
     dist_threshold = 10000) {
 
@@ -25,7 +25,8 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
 
     message (cli::symbol$play,
         cli::col_green (" Weighting network for routing "),
-        appendLF = FALSE)
+        appendLF = FALSE
+    )
     utils::flush.console ()
     graph <- dodgr::weight_streetnet (
         net,
@@ -34,10 +35,12 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
         turn_penalty = TRUE
     )
     ps <- attr (graph, "px")
-    #while (ps$is_alive ()) ps$wait ()
+    # while (ps$is_alive ()) ps$wait ()
     ps$kill () # don't need dodgr cached components
-    message ("\r", cli::col_green (cli::symbol$tick,
-        " Weighted network for routing   "))
+    message ("\r", cli::col_green (
+        cli::symbol$tick,
+        " Weighted network for routing   "
+    ))
 
     if (centrality) {
 
@@ -50,15 +53,18 @@ ttcalib_streetnet <- function (path, centrality = FALSE,
 
         message (cli::symbol$play,
             cli::col_green (" Calculating network centrality "),
-            appendLF = FALSE)
+            appendLF = FALSE
+        )
         utils::flush.console ()
         graph <- dodgr::dodgr_centrality (
             graph,
             column = "time_weighted",
             dist_threshold = dist_threshold
         )
-        message ("\r", cli::col_green (cli::symbol$tick,
-            " Calculated network centrality  "))
+        message ("\r", cli::col_green (
+            cli::symbol$tick,
+            " Calculated network centrality  "
+        ))
 
         attr (graph, "dist_threshold") <- dist_threshold
     }

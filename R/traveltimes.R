@@ -1,4 +1,3 @@
-
 #' Estimate travel times between all Uber movement polygons
 #'
 #' @param graph A \pkg{dodgr} graph returned from \link{ttcalib_streetnet}.

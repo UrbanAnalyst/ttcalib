@@ -1,4 +1,3 @@
-
 #' Calibrate travel times to network centrality.
 #'
 #' This calibration step is performed after calibration to waiting-time
@@ -26,8 +25,8 @@
 #' oncoming traffic used to generate the graph stored at `path`.
 #' @export
 ttcalib_centrality <- function (path_graph, path_uberdata,
-                                          city = "santiago", hours = c (7, 10),
-                                          turn_penalty = 1) {
+                                city = "santiago", hours = c (7, 10),
+                                turn_penalty = 1) {
 
     graph <- fst::read_fst (path_graph)
     graph <- graph [which (graph$component == 1), ]
@@ -37,6 +36,6 @@ ttcalib_centrality <- function (path_graph, path_uberdata,
 
     geodata <- ttcalib_geodata (path = path, city = city)
     uberdata <- ttcalib_uberdata (path = path, hours = hours, city = city)
-    
+
     dat <- ttcalib_traveltimes (graph, geodata, uberdata)
 }
