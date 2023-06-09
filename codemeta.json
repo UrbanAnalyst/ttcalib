@@ -7,13 +7,13 @@
   "codeRepository": "https://github.com/UrbanAnalyst/ttcalib",
   "issueTracker": "https://github.com/UrbanAnalyst/ttcalib/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0.006",
+  "version": "0.1.0.007",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
+  "runtimePlatform": "R version 4.3.0 (2023-04-21)",
   "author": [
     {
       "@type": "Person",
@@ -116,7 +116,7 @@
       "@type": "SoftwareApplication",
       "identifier": "m4ra",
       "name": "m4ra",
-      "sameAs": "https://github.com/atfutures/m4ra"
+      "sameAs": "https://github.com/UrbanAnalyst/m4ra"
     },
     "7": {
       "@type": "SoftwareApplication",
@@ -144,7 +144,7 @@
     },
     "SystemRequirements": {}
   },
-  "fileSize": "156927.911KB",
+  "fileSize": "161347.808KB",
   "readme": "https://github.com/UrbanAnalyst/ttcalib/blob/main/README.md",
   "contIntegration": "https://github.com/UrbanAnalyst/ttcalib/actions?query=workflow%3AR-CMD-check",
   "developmentStatus": "https://www.repostatus.org/#concept"

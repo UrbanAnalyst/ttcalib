@@ -1,6 +1,6 @@
 Package: ttcalib
 Title: Calibration of travel times to empirical data
-Version: 0.1.0.006
+Version: 0.1.0.007
 Authors@R: 
     person(given = "Mark",
            family = "Padgham",
@@ -24,7 +24,7 @@ Suggests:
     geodist,
     testthat (>= 3.0.0)
 Remotes:
-    atfutures/m4ra
+    UrbanAnalyst/m4ra
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
