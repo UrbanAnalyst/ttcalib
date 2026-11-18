@@ -31,8 +31,8 @@ ttcalib_centrality <- function (path_graph, path_uberdata,
     attr (graph, "wt_profile") <- "motorcar"
     attr (graph, "turn_penalty") <- 1
 
-    geodata <- ttcalib_geodata (path = path, city = city)
-    uberdata <- ttcalib_uberdata (path = path, hours = hours, city = city)
+    geodata <- ttcalib_geodata (path = path_uberdata, city = city)
+    uberdata <- ttcalib_uberdata (path = path_uberdata, hours = hours, city = city)
 
     dat <- ttcalib_traveltimes (graph, geodata, uberdata)
 }

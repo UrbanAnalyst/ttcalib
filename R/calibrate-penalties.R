@@ -107,7 +107,7 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
 
             dat <- dat [which (is.finite (dat$m4ra) &
                 dat$m4ra > 0), ]
-            mod <- summary (lm (log10 (dat$uber) ~ log10 (dat$m4ra)))
+            mod <- summary (stats::lm (log10 (dat$uber) ~ log10 (dat$m4ra)))
 
             message (
                 "(tl, tu) = (", tl, ", ", tu, "): R2 = ",
