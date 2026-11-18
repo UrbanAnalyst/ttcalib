@@ -2,8 +2,8 @@
 % Please edit documentation in R/ttcalib-package.R
 \docType{package}
 \name{ttcalib-package}
+\alias{ttcalib}
 \alias{ttcalib-package}
-\alias{_PACKAGE}
 \title{ttcalib: Calibration of travel times to empirical data}
 \description{
 Calibration of travel times to empirical data.
@@ -18,6 +18,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Mark Padgham \email{mark.padgham@email.com}
+
+Authors:
+\itemize{
+  \item Mark Padgham \email{mark.padgham@email.com}
+}
 
 }
 \keyword{internal}
