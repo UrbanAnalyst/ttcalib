@@ -13,7 +13,7 @@ ttcalib_centrality(
 )
 }
 \arguments{
-\item{path_graph}{Path to locally-saved \code{fst}-format weighted street
+\item{path_graph}{Path to locally-saved \code{Rds}-format weighted street
 network including centrality column.}
 
 \item{path_uberdata}{Path to Uber movement data.}
@@ -37,9 +37,6 @@ generate a weighted network with time-based centrality via the
 \link{ttcalib_streetnet} function.
 }
 \details{
-The result of that call is presumed to have been saved using the \code{fst}
-package (with \code{write_fst}), which strips all attributes of the graph. These
-attributes must then be manually re-instated, and so are required to be
-submitted as parameters to
-this function.
+The result of that call is presumed to have been saved using \code{saveRDS}.
+Required attributes are re-instated by this function.
 }

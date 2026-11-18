@@ -3,9 +3,9 @@
 #'
 #' This function produces an array of differently-weighted streetnets, each
 #' locally saved to a uniquely-named file. The resultant graphs are saved with
-#' the \pkg{fst} package, which removes the necessary attributes of the
-#' resultant `data.frame` objects. These must be manually restored prior to
-#' submitting to \link{ttcalib_traveltimes}. Required attributes are:
+#' `saveRDS`, and can be read with `readRDS`. Attributes are
+#' re-instated when reading, and must be manually restored if graphs are
+#' otherwise modified prior to submitting to \link{ttcalib_traveltimes}. Required attributes are:
 #' \itemize{
 #' \item "left_side", passed as same parameter to \pkg{dodgr} function
 #' `wt_streetnet`.
@@ -56,7 +56,7 @@ ttcalib_streetnet_batch <- function (path,
             penalty_turn = 7.5 # generic value; can be replaced later
         )
 
-        fst::write_fst (graph_p, fname)
+        saveRDS (graph_p, fname)
     }
 }
 
@@ -89,7 +89,7 @@ ttcalib_penalties <- function (path_results, path_uberdata, city, hours = NULL) 
         tl <- regmatches (f, regexpr ("\\_tl[0-9]+", f))
         tl <- as.integer (gsub ("^\\_tl", "", tl)) / 10
 
-        graph <- fst::read_fst (f)
+        graph <- readRDS (f)
         class (graph) <- c ("dodgr_streetnet_sc", class (graph))
         attr (graph, "left_side") <- FALSE
         attr (graph, "wt_profile") <- "motorcar"

@@ -16,9 +16,9 @@ seconds).}
 \description{
 This function produces an array of differently-weighted streetnets, each
 locally saved to a uniquely-named file. The resultant graphs are saved with
-the \pkg{fst} package, which removes the necessary attributes of the
-resultant \code{data.frame} objects. These must be manually restored prior to
-submitting to \link{ttcalib_traveltimes}. Required attributes are:
+\code{saveRDS}, and can be read with \code{readRDS}. Attributes are
+re-instated when reading, and must be manually restored if graphs are
+otherwise modified prior to submitting to \link{ttcalib_traveltimes}. Required attributes are:
 \itemize{
 \item "left_side", passed as same parameter to \pkg{dodgr} function
 \code{wt_streetnet}.

@@ -8,13 +8,10 @@
 #' generate a weighted network with time-based centrality via the
 #' \link{ttcalib_streetnet} function.
 #'
-#' The result of that call is presumed to have been saved using the `fst`
-#' package (with `write_fst`), which strips all attributes of the graph. These
-#' attributes must then be manually re-instated, and so are required to be
-#' submitted as parameters to
-#' this function.
+#' The result of that call is presumed to have been saved using `saveRDS`.
+#' Required attributes are re-instated by this function.
 #'
-#' @param path_graph Path to locally-saved `fst`-format weighted street
+#' @param path_graph Path to locally-saved `Rds`-format weighted street
 #' network including centrality column.
 #' @param path_uberdata Path to Uber movement data.
 #' @param city Currently only accepts "santiago"
@@ -28,7 +25,7 @@ ttcalib_centrality <- function (path_graph, path_uberdata,
                                 city = "santiago", hours = c (7, 10),
                                 turn_penalty = 1) {
 
-    graph <- fst::read_fst (path_graph)
+    graph <- readRDS (path_graph)
     graph <- graph [which (graph$component == 1), ]
     attr (graph, "left_side") <- FALSE
     attr (graph, "wt_profile") <- "motorcar"
